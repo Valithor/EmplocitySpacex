@@ -2,8 +2,7 @@ import React from 'react';
 import Missions from '../components/Missions';
 import Mission from '../components/Mission';
 
-const Home =()=> {  
-
+function Home (type) {  
     const [open, setOpen] = React.useState(false);
     const [id, setId] = React.useState();
   
@@ -18,8 +17,8 @@ const Home =()=> {
 
         return (
             <div>
-                <Missions handleOpen={handleOpen}></Missions>
-                <Mission id={id} handleClose={handleClose} open={open}></Mission>
+                <Missions handleOpen={handleOpen} type={type.type}></Missions>
+                {open && <Mission id={id} handleClose={handleClose} open={open}></Mission>}
             </div >
         );
     }
