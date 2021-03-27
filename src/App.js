@@ -27,8 +27,8 @@ const App = () => {
       <ApolloProvider client={apolloClient}>
         <Container maxWidth="md">
           <Switch>
-            <Route exact path='/' component={()=><Home type="all"/>} ></Route>
-            <Route exact path='/favourites' component={()=><Home type='favs'/>} ></Route>
+            <Route exact path='EmplocitySpacex/' component={()=><Home type="all"/>} ></Route>
+            <Route exact path='EmplocitySpacex/favourites' component={()=><Home type='favs'/>} ></Route>
             <Route>404 NOT FOUND</Route>
           </Switch>
         </Container>
