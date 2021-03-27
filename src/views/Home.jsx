@@ -1,6 +1,6 @@
 import React from 'react';
-import Missions from '../components/Missions';
-import Mission from '../components/Mission';
+import Launches from '../components/Launches';
+import Launch from '../components/Launch';
 
 function Home (type) {  
     const [open, setOpen] = React.useState(false);
@@ -10,15 +10,10 @@ function Home (type) {
       setOpen(true);
       setId(id);
     };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
-
         return (
-            <div>
-                <Missions handleOpen={handleOpen} type={type.type}></Missions>
-                {open && <Mission id={id} handleClose={handleClose} open={open}></Mission>}
+            <div>&nbsp;
+                <Launches handleOpen={handleOpen} type={type.type}></Launches>
+                {open && <Launch id={id} handleClose={()=>setOpen(false)} open={open}></Launch>}
             </div >
         );
     }

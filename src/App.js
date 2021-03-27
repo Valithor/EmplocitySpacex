@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
+import { BrowserRouter, Route,Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './views/Home';
+import { Typography, Container } from '@material-ui/core';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { offsetLimitPagination } from "@apollo/client/utilities";
 import { ApolloProvider } from '@apollo/client';
@@ -12,7 +13,7 @@ const apolloClient = new ApolloClient({
     typePolicies: {
       Query: {
         fields: {
-          missions: offsetLimitPagination()
+          launches: offsetLimitPagination()
         },
       },
     },
@@ -21,15 +22,17 @@ const apolloClient = new ApolloClient({
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
+    <Header/>
       <ApolloProvider client={apolloClient}>
-        <Header/>
-        <Switch>
+        <Container  maxWidth="md">
+          <Switch>
             <Route path='/' exact component={()=><Home type="all"/>} ></Route>
             <Route path='/favourites' exact={true} component={()=><Home type='favs'/>} ></Route>
-        </Switch>
+          </Switch>
+        </Container>
       </ApolloProvider>
-    </Router>
+    </BrowserRouter>
   );
 }
 

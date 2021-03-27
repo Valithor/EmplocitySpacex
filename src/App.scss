@@ -1,8 +1,25 @@
+html, body, #root, .App {
+    padding: 0 0 0 0;
+    margin: 0;
+    height:100%;
+    background-image: url("https://wallpaperaccess.com/full/17498.jpg");
+    color: white;
+  }
+
 .small-photo{
     width: auto;
-    height: 50px;
+    height: 75px;
 }
 .missions-table{
     width: 100%;
 
+}
+
+.fav{
+    color: red;
+}
+.row{
+    margin: 1000;
+    left: 200%;
+    padding: 100000;
 }
