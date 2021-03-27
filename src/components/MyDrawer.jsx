@@ -27,8 +27,8 @@ function MyDrawer({open, handleClose}) {
       <Drawer open={open} onClose={handleClose}>
         <div className={classes.drawer}>
         <List className={classes.drawerContent}>
-            <ListItem button >
-              <ListItemIcon style={{color: 'white'}} onClick={() => history.push('/')}>
+            <ListItem button onClick={() => history.push('/')}>
+              <ListItemIcon style={{color: 'white'}}>
                 <Home/> <ListItemText>Home</ListItemText>
               </ListItemIcon>
             </ListItem>
