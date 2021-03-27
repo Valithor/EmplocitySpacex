@@ -29,10 +29,10 @@ function Launches ({ handleOpen, type }) {
     const {setFavourites, removeFavourites} = actionDispatch(useDispatch());
     const observer = useRef();  
 
-    const stopProp =(e, item) => {
+    const stopProp =(e, item, id) => {
         e.stopPropagation();
-        if(favourites.some(fav=> fav===item))
-        removeFavourites(item.id);
+        if(favourites.some(fav=> fav.id===id))
+        removeFavourites(id);
         else
         setFavourites(item);
     }
@@ -62,7 +62,7 @@ function Launches ({ handleOpen, type }) {
                         {launches.map(({id, links, mission_name}, i) => {
                             return <TableRow onClick={() => handleOpen(id)} style ={ i % 2? { background : "#00003f" }:{ background : "#000000" } } className={classes.tr} key={i} ref={data.launches.length === i+1 && !error?loadMore:null}>
                                 <TableCell style={{color: 'white'}}>{mission_name ? mission_name: "Unnamed"}</TableCell>
-                                <TableCell align="center"><div className="fav"><IconButton color="inherit" onClick={(e)=> stopProp(e, data.launches[i])}>{favourites.some(fav=> fav.id===id)?<Favorite/>:<FavoriteBorder/>}</IconButton></div></TableCell>
+                                <TableCell align="center"><div className="fav"><IconButton color="inherit" onClick={(e)=> stopProp(e, data.launches[i], id)}>{favourites.some(fav=> fav.id===id)?<Favorite/>:<FavoriteBorder/>}</IconButton></div></TableCell>
                                 <TableCell align="center"><img className="small-photo" alt={mission_name} src={links.mission_patch_small}/></TableCell>
                             </TableRow>                   
                         })}

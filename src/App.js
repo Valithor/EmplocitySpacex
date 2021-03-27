@@ -22,7 +22,7 @@ const apolloClient = new ApolloClient({
 
 const App = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
     <Header/>
       <ApolloProvider client={apolloClient}>
         <Container  maxWidth="md">
