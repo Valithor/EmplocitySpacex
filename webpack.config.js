@@ -1,8 +1,9 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
-module.exports={
+module.exports = (env, argv) =>({
     output:{
+        publicPath: (argv || {}).mode === 'production' ? '/EmplocitySpacex' : '/',
         path: path.join(__dirname, '/dist'),
         filename: 'index.bundle.js',
     },
@@ -35,4 +36,4 @@ module.exports={
     plugins: [
         new MiniCssExtractPlugin(),
         ],
-};
+});
