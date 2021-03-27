@@ -22,13 +22,13 @@ const apolloClient = new ApolloClient({
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Header/>
       <ApolloProvider client={apolloClient}>
         <Container  maxWidth="md">
           <Switch>
-            <Route path='/EmplocitySpacex' exact component={()=><Home type="all"/>} ></Route>
-            <Route path='/EmplocitySpacex/favourites' exact={true} component={()=><Home type='favs'/>} ></Route>
+            <Route path='/' exact component={()=><Home type="all"/>} ></Route>
+            <Route path='/favourites' exact={true} component={()=><Home type='favs'/>} ></Route>
           </Switch>
         </Container>
       </ApolloProvider>

@@ -1,5 +1,6 @@
 {
   "name": "spacex",
+  "homepage": "https://valithor.github.io/EmplocitySpacex",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
